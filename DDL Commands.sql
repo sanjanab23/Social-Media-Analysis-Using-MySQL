@@ -1,0 +1,26 @@
+ALTER TABLE UserProfiles
+ADD COLUMN PhoneNumber VARCHAR(20);
+
+
+ALTER TABLE Posts
+MODIFY COLUMN PostText VARCHAR(255);
+
+
+ALTER TABLE Comments
+ADD CONSTRAINT FK_UserID
+FOREIGN KEY (UserID)
+REFERENCES UserProfiles(UserID);
+
+
+DROP TABLE IF EXISTS Likes;
+
+
+ALTER TABLE Shares
+RENAME TO SharesHistory;
+
+
+ALTER TABLE Sentiments
+MODIFY COLUMN SentimentScore DECIMAL(5, 2);
+
+
+
